@@ -508,3 +508,6 @@ if __name__ == "__main__":
         print("Registered routes:")
         for rule in app.url_map.iter_rules():
             print(rule)
+
+    port = int(os.environ.get("PORT", 5000))  
+    app.run(host="0.0.0.0", port=port)
