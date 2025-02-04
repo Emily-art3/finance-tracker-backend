@@ -31,6 +31,8 @@ supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "https://finance-tracker-frontend-dzbczyfyo-emily-art3s-projects.vercel.app", "methods": ["GET", "POST", "OPTIONS"], "allow_headers": ["Content-Type", "Authorization"]}}, supports_credentials=True)
 
+port = int(os.environ.get("PORT", 5000))
+
 
 DB_CONFIG = {
     "dbname" : os.getenv("DB_NAME"),
@@ -504,10 +506,9 @@ def get_categories():
     return jsonify({"error": "Unexpected response format"}), 500
 
 if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=port)
     with app.app_context():
         print("Registered routes:")
         for rule in app.url_map.iter_rules():
             print(rule)
 
-    port = int(os.environ.get("PORT", 5000))  
-    app.run(host="0.0.0.0", port=port)
