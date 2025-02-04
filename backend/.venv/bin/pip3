@@ -1,4 +1,4 @@
-#!/home/emily/Development/code/phase-4/finance-tracker-backend/backend/.venv/bin/python
+#!/home/emily/Development/code/phase-4/finance-tracker-backend/backend/.venv/bin/python3.10
 # -*- coding: utf-8 -*-
 import re
 import sys
