@@ -29,7 +29,8 @@ if not SUPABASE_URL or not SUPABASE_KEY:
 supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "http://localhost:3000", "methods": ["GET", "POST", "OPTIONS"], "allow_headers": ["Content-Type", "Authorization"]}}, supports_credentials=True)
+CORS(app, resources={r"/*": {"origins": "https://finance-tracker-frontend-dzbczyfyo-emily-art3s-projects.vercel.app", "methods": ["GET", "POST", "OPTIONS"], "allow_headers": ["Content-Type", "Authorization"]}}, supports_credentials=True)
+
 
 DB_CONFIG = {
     "dbname" : os.getenv("DB_NAME"),
