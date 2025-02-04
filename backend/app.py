@@ -98,6 +98,11 @@ class Goal(db.Model):
 
     category = db.relationship('Category', backref=db.backref('goals', lazy=True))
 
+@app.route('/healthz')
+def health_check():
+    return "OK", 200
+
+
 @app.route('/')
 def home():
     return jsonify({"message": "Welcome to Finance Tracker API"}), 200
